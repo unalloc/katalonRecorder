@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+    "name": "Katalon Recording Utility",
+    "description": "Katalon Studio plugins to capture actions for generating automation test case. A powerful alternative to Selenium IDE.",
+    "version": "1.0.0.9",
+    "permissions": ["http://*/", "https://*/", "storage"],
+    "icons": { "16": "images/branding_16.png",
+           "48": "images/branding_48.png",
+          "128": "images/branding_128.png" },
+    "content_scripts": [
+        {
+        "all_frames": true,
+        "matches": ["http://*/*", "https://*/*"],
+        "match_about_blank": true,
+        "js": ["jquery-3.2.1.min.js", "jquery.color.js", "constants.js", "chrome_variables_default.js", "chrome_variables_init.js", "chrome_common.js",
+            "common.js", "record_common.js", "chrome_setup.js", "dom_inspector.js", "dom_collector.js", "dom_recorder.js", "process_element.js", "main.js"]
+        }
+    ],
+    "background": {
+        "scripts": ["constants.js", "chrome_variables_default.js", "chrome_variables_init.js", "chrome_common.js", "background.js"]
+    },
+    "browser_action": {
+        "default_icon": {
+            "32": "images/branding_32.png"
+        },
+            "default_title": "Katalon Utility"
+        },
+  "options_page": "options.html"
+}

@@ -1,0 +1,43 @@
+{
+   "background": {
+      "scripts": [ "common/browser-polyfill.js", "background/background.js", "background/kar.js", "katalon/constants.js", "katalon/chrome_variables_default.js", "katalon/chrome_variables_init.js", "katalon/chrome_common.js", "katalon/background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "katalon/images/branding_16.png",
+      "default_title": "Katalon Automation Recorder"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "content/bowser.js", "content/atoms.js", "content/utils.js", "content/selenium-commandhandlers.js", "content/selenium-browserbot.js", "common/escape.js", "content/selenium-api.js", "content/locatorBuilders.js", "content/recorder.js", "content/recorder-handlers.js", "content/command-receiver.js", "content/targetSelecter.js", "content/sizzle.js" ],
+      "match_about_blank": true,
+      "matches": [ "\u003Call_urls>" ]
+   }, {
+      "all_frames": true,
+      "js": [ "common/browser-polyfill.js", "content/prompt-injecter.js", "content/runScript-injecter.js" ],
+      "match_about_blank": true,
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "katalon/jquery-3.2.1.min.js", "katalon/jquery.color.js", "katalon/constants.js", "katalon/chrome_variables_default.js", "katalon/chrome_variables_init.js", "katalon/chrome_common.js", "katalon/common.js", "katalon/record_common.js", "katalon/chrome_setup.js", "katalon/dom_inspector.js", "katalon/dom_collector.js", "katalon/dom_recorder.js", "katalon/process_element.js", "katalon/main.js" ],
+      "match_about_blank": true,
+      "matches": [ "http://*/*", "https://*/*" ]
+   } ],
+   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+   "description": "Best Selenium IDE record, play and debug tool. Easy reporting (logs, screenshots). Quick exporting to Selenium WebDriver scripts.",
+   "homepage_url": "https://www.katalon.com/",
+   "icons": {
+      "128": "katalon/images/branding_128.png",
+      "16": "katalon/images/branding_16.png",
+      "48": "katalon/images/branding_48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApPBt0KSi9NMDRIecv0hJc/Qd+lNiG1OH23YppKEtBxtrBLM34ytpdfUx5uLS9bRQMagFQe3/eNL4nD0xRBsix/OPyDnCXKk4PR4Ck3AuTOVCr6b7cdnKe4l5DCmQvZNW56WntrkUaWkvNtmfuGpWPPiHxUcJQnEBnwktbNaSBDUnjLmHqsJBlON4OnGCexNe8keLQ8ukXPVkEcpWgiCZftMwDj9NQgy5z+nhyWED0li/bavNLe4lHAa/pxf71Y1wUk5dXk1974cXu72oOdgOYbemFCwjyltm4Np3ip7vpbgiJEmONU8j6uQsU8VGkjtN6hqyrIhYzN0UYoznGTWsdwIDAQAB",
+   "manifest_version": 2,
+   "name": "Katalon Recorder (Selenium IDE for Chrome)",
+   "offline_enabled": true,
+   "options_page": "katalon/options.html",
+   "permissions": [ "tabs", "activeTab", "webRequest", "contextMenus", "downloads", "webNavigation", "notifications", "http://*/", "https://*/", "storage", "unlimitedStorage", "\u003Call_urls>", "debugger" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "3.4.0",
+   "web_accessible_resources": [ "page/prompt.js", "page/runScript.js" ]
+}
