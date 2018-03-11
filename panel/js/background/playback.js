@@ -128,6 +128,7 @@ window.onload = function() {
     recordButton.addEventListener("click", function(){
         isRecording = !isRecording;
         if (isRecording) {
+            console.log("Recording");
             recorder.attach();
             notificationCount = 0;
             // KAT-BEGIN focus on window when recording
@@ -138,6 +139,7 @@ window.onload = function() {
             browser.tabs.query({windowId: extCommand.getContentWindowId(), url: "<all_urls>"})
             .then(function(tabs) {
                 for(let tab of tabs) {
+                    // send message to the content script of specified tab, fire runtime.onMessage event
                     browser.tabs.sendMessage(tab.id, {attachRecorder: true});
                 }
             });

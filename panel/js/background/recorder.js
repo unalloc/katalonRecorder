@@ -176,6 +176,7 @@ class BackgroundRecorder {
         }
     };
 
+    // message handler 
     addCommandMessageHandler(message, sender, sendRequest) {
         if (!message.command || this.openedWindowIds[sender.tab.windowId] == undefined)
             return;
@@ -229,7 +230,7 @@ class BackgroundRecorder {
                 oldFrameLevels.pop();
             }
             while (oldFrameLevels.length < newFrameLevels.length) {
-                addCommandAuto("selectFrame", [
+                `addCommandAuto`("selectFrame", [
                     ["index=" + newFrameLevels[oldFrameLevels.length]]
                 ], "");
                 oldFrameLevels.push(newFrameLevels[oldFrameLevels.length]);

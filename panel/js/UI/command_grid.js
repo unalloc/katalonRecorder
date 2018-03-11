@@ -285,6 +285,7 @@ function getSelectedRecords() {
     }
 }
 
+// add command function
 function addCommand(command_name, command_target_array, command_value, auto, insertCommand) {
     // create default test suite and case if necessary
     var s_suite = getSelectedSuite(),
